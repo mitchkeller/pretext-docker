@@ -5,7 +5,9 @@ RUN wget https://github.com/jgm/pandoc/releases/download/3.1.4/pandoc-3.1.4-1-am
 
 RUN pip install pip --upgrade
 
-RUN pip install greenlet==2.0.2
+RUN pip install --upgrade setuptools wheel cmake
+
+RUN pip install greenlet==2.0.2 --no-cache-dir
 
 RUN pip install pretext 
 
