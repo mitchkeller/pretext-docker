@@ -1,14 +1,8 @@
-FROM python:3.9-bullseye
-
-RUN apt install build-essential
+FROM mcr.microsoft.com/devcontainers/python:0-3.11
 
 RUN pip install pip --upgrade
 
-RUN pip install --upgrade setuptools wheel cmake
-
-RUN pip install greenlet==2.0.2 --no-cache-dir
-
-RUN pip install pretext 
+RUN pip install pretext --only-binary {greenlet}
 
 RUN pip install codechat-server
 
