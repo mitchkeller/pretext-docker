@@ -1,6 +1,6 @@
 FROM python:3.9-bullseye
 
-RUN apk add build-base
+RUN apt install build-essential
 
 RUN pip install pip --upgrade
 
