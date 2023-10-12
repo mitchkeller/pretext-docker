@@ -5,6 +5,8 @@ RUN wget https://github.com/jgm/pandoc/releases/download/3.1.4/pandoc-3.1.4-1-am
 
 RUN pip install pip --upgrade
 
+RUN pip install --upgrade setuptools wheel
+
 RUN pip install codechat-server --upgrade
 
 RUN pip install pretext --upgrade
