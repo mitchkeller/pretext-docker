@@ -22,9 +22,6 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: build-tools
-        run: apt install build-essential
-            
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
 
