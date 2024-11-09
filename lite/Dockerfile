@@ -4,7 +4,7 @@ RUN pip install pip --upgrade
 
 RUN sudo apt-get update && sudo apt-get install libcairo2-dev pkg-config python3-dev -y
 
-RUN pip install pretext --only-binary {greenlet}
+RUN pip install pretext[homepage,pelican] --only-binary {greenlet}
 
 RUN pip install codechat-server
 
