@@ -1,10 +1,10 @@
-FROM mcr.microsoft.com/devcontainers/python:3.12-bookworm
-
-RUN pip install pip --upgrade
+FROM python:3.12-bookworm
 
 RUN apt-get update && \
-    apt-get install -y npm nodejs python3-dev python3-louis libcairo2-dev pkg-config librsvg2-bin && \
-    apt-get clean
+apt-get install -y npm nodejs python3-dev python3-louis libcairo2-dev pkg-config librsvg2-bin && \
+apt-get clean
+
+RUN pip install pip --upgrade
 
 RUN pip install pretext[homepage,prefigure] --only-binary {greenlet}
 
