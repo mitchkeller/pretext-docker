@@ -6,7 +6,7 @@ RUN apt-get update && \
     apt-get install -y npm nodejs python3-dev python3-louis libcairo2-dev pkg-config librsvg2-bin && \
     apt-get clean
 
-RUN pip install pretext[homepage, prefigure] --only-binary {greenlet}
+RUN pip install pretext[homepage,prefigure] --only-binary {greenlet}
 
 RUN pip install codechat-server
 
