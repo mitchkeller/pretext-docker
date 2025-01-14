@@ -18,7 +18,7 @@ libprimecount-dev libprimesieve-dev libpython3-dev libqhull-dev \
 libreadline-dev librw-dev libsingular4-dev libsqlite3-dev libssl-dev \
 libsuitesparse-dev libsymmetrica2-dev libz-dev libzmq3-dev m4 make
 
-RUN apt-get install -y maxima maxima-sage meson nauty ninja-build openssl \ palp pari-doc \
+RUN apt-get install -y maxima maxima-sage meson nauty ninja-build openssl pari-doc \
 pari-elldata pari-galdata pari-galpol pari-gp2c pari-seadata patch \
 patchelf perl pkg-config planarity ppl-dev python3 python3-setuptools \
 python3-venv qhull-bin singular singular-doc sqlite3 sympow tachyon \
