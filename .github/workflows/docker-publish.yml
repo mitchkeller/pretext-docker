@@ -9,6 +9,17 @@ on:
     types: [pretext-publish]
 
   workflow_dispatch:
+    inputs:
+      container:
+        description: "Which docker image(s) to rebuild"
+        required: true
+        type: choice
+        default: "all"
+        options:
+          - "all"
+          - "lite"
+          - "small"
+          - "full"
 
 jobs:
   build:
@@ -26,6 +37,7 @@ jobs:
         uses: docker/setup-buildx-action@v3
 
       - name: Build and push lite
+        if: ${{ github.event.inputs.container == 'all' || github.event.inputs.container == 'lite' }}
         uses: docker/build-push-action@v6
         with:
           context: .
@@ -34,6 +46,7 @@ jobs:
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/pretext:lite
 
       - name: Build and push small
+        if: ${{ github.event.inputs.container == 'all' || github.event.inputs.container == 'small' }}
         uses: docker/build-push-action@v6
         with:
           context: .
@@ -42,6 +55,7 @@ jobs:
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/pretext:small
 
       - name: Build and push full
+        if: ${{ github.event.inputs.container == 'all' || github.event.inputs.container == 'full' }}
         uses: docker/build-push-action@v6
         with:
           context: .
