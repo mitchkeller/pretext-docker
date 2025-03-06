@@ -1,9 +1,18 @@
 FROM oscarlevin/pretext:small
 
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+
 RUN wget -O Miniforge3.sh "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
 
-RUN bash Miniforge3-$(uname)-$(uname -m).sh -b
+RUN bash Miniforge3.sh -b -p "/conda"
 
-RUN mamba create -n sage sage python=3.12
+SHELL ["/bin/bash", "-i", "-c"]
 
-RUN echo "conda activate sage" >> ~/.bashrc
+ENV PATH="/conda/bin:${PATH}"
+
+RUN conda --version
+
+RUN mamba create --yes -n sage sage python=3.12
+
+RUN echo 'alias sage="mamba run -n sage sage"' >> ~/.bashrc
+

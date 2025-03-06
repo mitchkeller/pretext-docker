@@ -18,3 +18,5 @@ RUN prefig init
 
 RUN wget https://github.com/jgm/pandoc/releases/download/3.1.4/pandoc-3.1.4-1-amd64.deb && \
   dpkg -i pandoc-3.1.4-1-amd64.deb
+
+RUN echo 'export PS1="\[\e[1;32m\]\u@\h:\[\e[1;34m\]\w \[\e[0m\]\$ "' >> ~/.bashrc
