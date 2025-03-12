@@ -14,5 +14,7 @@ RUN conda --version
 
 RUN mamba create --yes -n sage sage python=3.12
 
+RUN conda init
+
 RUN echo 'conda activate sage' >> ~/.bashrc
 
