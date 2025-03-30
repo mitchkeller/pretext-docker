@@ -1,8 +1,9 @@
 FROM python:3.12-bookworm
 
 RUN apt-get update && \
-apt-get install -y npm nodejs python3-dev python3-louis libcairo2-dev pkg-config librsvg2-bin && \
-apt-get clean
+apt-get install -y npm nodejs python3-dev python3-louis libcairo2-dev pkg-config librsvg2-bin
+
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN pip install pip --upgrade
 
@@ -18,5 +19,7 @@ RUN prefig init
 
 RUN wget https://github.com/jgm/pandoc/releases/download/3.1.4/pandoc-3.1.4-1-amd64.deb && \
   dpkg -i pandoc-3.1.4-1-amd64.deb
+
+RUN rm pandoc-3.1.4-1-amd64.deb
 
 RUN echo 'export PS1="\[\e[1;32m\]\u@\h:\[\e[1;34m\]\w \[\e[0m\]\$ "' >> ~/.bashrc
