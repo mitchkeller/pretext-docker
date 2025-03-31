@@ -26,7 +26,7 @@ RUN apt-get update \
                     gcc \
 && apt-get autoremove -y \
 && apt-get clean && rm -rf /var/lib/apt/lists/* \
-&& rm -rf /tmp/* /var/tmp/* \
+&& rm -rf /tmp/* /var/tmp/* 
 # Clean up disk space
 
 
