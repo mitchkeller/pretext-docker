@@ -19,14 +19,15 @@ RUN apt-get update \
 && playwright install-deps \
 && echo '/usr/lib/python3/dist-packages' > /usr/local/lib/python3.11/dist-packages/louis.pth \
 && prefig init \
-&& apt-get uninstall --purge -y \
+&& apt-get remove --purge -y \
                     python3-dev \
                     libcairo2-dev \
                     pkg-config \
                     gcc \
 && apt-get autoremove -y \
-&& apt-get clean && rm -rf /var/lib/apt/lists/* \
-&& rm -rf /tmp/* /var/tmp/* 
+&& apt-get clean \
+&& rm -rf /var/lib/apt/lists/* \
+&& rm -rf /tmp/* /var/tmp/*
 # Clean up disk space
 
 
