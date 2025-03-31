@@ -1,6 +1,5 @@
 FROM oscarlevin/pretext:lite
 
-
 RUN apt update && apt install -y --no-install-recommends \
     texlive \
     texlive-plain-generic \
@@ -8,7 +7,5 @@ RUN apt update && apt install -y --no-install-recommends \
     texlive-xetex \
     texlive-fonts-extra \
     ghostscript \
-    pdf2svg \
-    asymptote
-
-RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+    asymptote \
+&& apt-get clean && rm -rf /var/lib/apt/lists/*
