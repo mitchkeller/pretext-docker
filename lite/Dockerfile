@@ -32,8 +32,3 @@ RUN apt-get update \
 # Clean up disk space
 
 
-RUN wget https://github.com/jgm/pandoc/releases/download/3.6.4/pandoc-3.6.4-1-amd64.deb -O pandoc.deb \ 
-&& dpkg -i pandoc.deb \
-&& rm pandoc.deb
-
-RUN echo 'export PS1="\[\e[1;32m\]\u@\h:\[\e[1;34m\]\w \[\e[0m\]\$ "' >> ~/.bashrc
