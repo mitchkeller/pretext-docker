@@ -23,6 +23,8 @@ on:
 
 jobs:
   build:
+    with:
+        container: ${{ inputs.container || 'all' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
