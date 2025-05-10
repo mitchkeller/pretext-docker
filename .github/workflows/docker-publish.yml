@@ -23,8 +23,6 @@ on:
 
 jobs:
   build:
-    with:
-        container: ${{ inputs.container || 'all' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -39,7 +37,7 @@ jobs:
         uses: docker/setup-buildx-action@v3
 
       - name: Build and push lite
-        if: ${{ github.event.inputs.container == 'all' || github.event.inputs.container == 'lite' }}
+        if: ${{ github.event.inputs.container == 'all' || github.event.inputs.container == 'lite' || github.event.inputs.container == '' }}
         uses: docker/build-push-action@v6
         with:
           context: .
@@ -48,7 +46,7 @@ jobs:
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/pretext:lite
 
       - name: Build and push small
-        if: ${{ github.event.inputs.container == 'all' || github.event.inputs.container == 'small' }}
+        if: ${{ github.event.inputs.container == 'all' || github.event.inputs.container == 'small' || github.event.inputs.container == ''}}
         uses: docker/build-push-action@v6
         with:
           context: .
@@ -57,7 +55,7 @@ jobs:
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/pretext:small
 
       - name: Build and push full
-        if: ${{ github.event.inputs.container == 'all' || github.event.inputs.container == 'full' }}
+        if: ${{ github.event.inputs.container == 'all' || github.event.inputs.container == 'full' || github.event.inputs.container == '' }}
         uses: docker/build-push-action@v6
         with:
           context: .
