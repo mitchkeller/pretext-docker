@@ -1,4 +1,4 @@
-FROM oscarlevin/pretext:small
+FROM mitchkelleruw/pretext:small
 
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
