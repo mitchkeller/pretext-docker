@@ -13,6 +13,7 @@ RUN apt-get update \
                     pkg-config \
                     librsvg2-bin \
                     wget \
+                    default-jre \
                     gcc \
                     && pip install pip --upgrade --break-system-packages \
                     && pip install pretext[homepage,prefigure] --only-binary {greenlet}  --break-system-packages \
